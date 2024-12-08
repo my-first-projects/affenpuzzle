@@ -76,11 +76,11 @@ public class SolvingThread extends Thread implements Runnable {
 			return (solving[x][y-1].getBottom() == solving[x][y].getTop() && solving[x-1][y].getLeft() == solving[x][y].getRight());
 		}else if ( x == 2 && y == 1) {
 			return (solving[x][y-1].getBottom() == solving[x][y].getTop() && solving[x-1][y].getLeft() == solving[x][y].getRight());
-		}else if ( x == 0 && y == 1) {
+		}else if ( x == 0 && y == 2) {
 			return (solving[x][y-1].getBottom() == solving[x][y].getTop());
-		}else if ( x == 1 && y == 1) {
+		}else if ( x == 1 && y == 2) {
 			return (solving[x][y-1].getBottom() == solving[x][y].getTop() && solving[x-1][y].getLeft() == solving[x][y].getRight());
-		}else if ( x == 2 && y == 1) {
+		}else if ( x == 2 && y == 2) {
 			return (solving[x][y-1].getBottom() == solving[x][y].getTop() && solving[x-1][y].getLeft() == solving[x][y].getRight());
 		}
 		
@@ -92,11 +92,7 @@ public class SolvingThread extends Thread implements Runnable {
 			x = 0;
 			y++;
 		} else {
-			if (x == 2) {
-				x = 0;
-			} else {
-				x++;
-			}
+			x++;
 		}
 
 		return new int[] { x, y };

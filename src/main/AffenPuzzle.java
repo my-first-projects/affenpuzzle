@@ -26,7 +26,7 @@ public class AffenPuzzle extends JPanel implements Runnable {
 
 		this.setPreferredSize(new Dimension(w, h));
 		setBackground(Color.WHITE);
-		myFrame = new JFrame("Affenpuzzle");
+		myFrame = new JFrame("Affenpuzzle - by eliastheis.de");
 		myFrame.setLocation(300, 100);
 		myFrame.setResizable(false);
 		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,19 +36,7 @@ public class AffenPuzzle extends JPanel implements Runnable {
 
 		Thread th = new Thread(this);
 		th.start();
-		
-		// test
-		/*
-		for(int i = 0; i < 100; i++) {
-			swap((int)(Math.random()*3), (int)(Math.random()*3), (int)(Math.random()*3), (int)(Math.random()*3));
-			k[(int)(Math.random()*3)][(int)(Math.random()*3)].rotate(1);
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}*/
-		
+
 		SolvingThread sth = new SolvingThread();
 		try {
 			Thread.sleep(1000);
@@ -60,24 +48,6 @@ public class AffenPuzzle extends JPanel implements Runnable {
 	}
 
 	static public void initGame() {
-		/*
-		k[0][0] = new Karte(new int[] { 1, 2, 3, 4 });
-		k[0][1] = new Karte(new int[] { 3, 1, 4, 1 });
-		k[0][2] = new Karte(new int[] { 4, 2, 3, 2 });
-		k[1][0] = new Karte(new int[] { 2, 4, 3, 3 });
-		k[1][1] = new Karte(new int[] { 3, 1, 4, 2 });
-		k[1][2] = new Karte(new int[] { 4, 2, 1, 3 });
-		k[2][0] = new Karte(new int[] { 3, 3, 1, 2 });
-		k[2][1] = new Karte(new int[] { 1, 2, 4, 4 });
-		k[2][2] = new Karte(new int[] { 4, 3, 4, 1 });
-		
-		max = (long) (Math.pow(4, 9)*362880);
-		max /= 4;
-		System.out.println(max);
-
-		for (int i = 0; i < solving.length; i++)
-			for (int j = 0; j < solving[i].length; j++)
-				solving[i][j] = new Karte(new int[] { 5, 5, 5, 5 });*/
 		reset();
 	}
 	
@@ -186,7 +156,7 @@ public class AffenPuzzle extends JPanel implements Runnable {
 		long time = System.currentTimeMillis() - start;
 		long verbleibend = (long) ((100/fortschritt) * time);
 		verbleibend -= time * fortschritt;
-		g.drawString("Übrig: ", 15, 710);
+		g.drawString("ï¿½brig: ", 15, 710);
 		g.drawString(verbleibend/1000/60 + " Minuten | " + verbleibend/1000/60/60 + " Stunden", 175, 710);
 		
 		Date d = new java.util.Date(System.currentTimeMillis() + verbleibend);
